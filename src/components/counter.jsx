@@ -5,8 +5,14 @@ class Counter extends Component {
   state = {
     count: 0,
     tags: ["tag1", "tag2", "tag3"],
+
     //?(2) imageUrl: "https://picsum.photos/200",
   };
+
+  // constructor() {
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
 
   /*
   styles = {
@@ -22,9 +28,24 @@ class Counter extends Component {
   </span>
 */
 
-  handleIncrement() {
-    console.log("^^^");
-  }
+  // handleIncrement(){
+
+  //handleIncrement = () => {
+
+  handleIncrement = (why) => {
+    console.log("^^^", this);
+    console.log(why);
+
+    //this - undefine!! bcz return window
+    //if it was on obj.fun() it return a ref!
+
+    // this.state.count++; //%not good
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  doITNObb = () => {
+    this.handleIncrement({ id: 1 });
+  };
 
   render() {
     return (
@@ -33,9 +54,9 @@ class Counter extends Component {
         <h1>Hello Word!</h1>
 
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-
         <button
-          onClick={this.handleIncrement} //!not need  a  () for fun >{javaScript obj}
+          // onClick={this.handleIncrement} //!not need  a() for fun >{javaScript obj !!send a ref!}
+          onClick={() => this.handleIncrement(1)}
           className="btn btn-secondary btn-sm"
         >
           this is a button

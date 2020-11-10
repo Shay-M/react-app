@@ -42,6 +42,7 @@ class Counter extends Component {
         </button>
 
         {this.state.tags.length === 0 && "There are no tags"}
+        {/* string is Truth */}
         {this.renderTags()}
       </React.Fragment>
     );
@@ -66,8 +67,9 @@ class Counter extends Component {
     if (this.state.tags.length === 0) return <p>There are no tags :( </p>;
     return (
       <ul>
+        {/* //map bcz it is array */}
         {this.state.tags.map((tag) => (
-          <li key={tag}>{tag}</li>
+          <li key={tag}>{tag}</li> //key for uniq id,if was tag >>>if <li key={tag.id}
         ))}
       </ul>
     );

@@ -3,7 +3,7 @@ import React, { Component } from "react"; //imrc
 class Counter extends Component {
   //cc
   state = {
-    count: 0,
+    count: this.props.value,
     tags: ["tag1", "tag2", "tag3"],
 
     //?(2) imageUrl: "https://picsum.photos/200",
@@ -48,10 +48,13 @@ class Counter extends Component {
   };
 
   render() {
+    console.log("props", this.props); //props all 'mafynym'
+
     return (
       // was div but do 2 so use this
       <React.Fragment>
-        <h1>Hello Word!</h1>
+        {this.props.children}
+        <h4>Hello Word!</h4>
 
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
